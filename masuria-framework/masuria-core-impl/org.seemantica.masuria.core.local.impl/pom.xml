@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.seemantica.masuria</groupId>
+  <artifactId>org.seemantica.masuria.core.local.impl</artifactId>
+  <name>org.seemantica.masuria.core.local.impl bundle group</name>
+  <packaging>pom</packaging>
+  <version>0.0.1.M1-SNAPSHOT</version>
+ 
+  <parent>
+    <groupId>org.seemantica.masuria</groupId>
+    <artifactId>masuria-core-impl</artifactId>
+    <version>0.0.1.M1-SNAPSHOT</version>
+  </parent>
+
+  <modules>
+    <module>org.seemantica.masuria.core.barrier.master.local.impl</module>
+    <module>org.seemantica.masuria.core.barrier.peer.local.impl</module>
+    <module>org.seemantica.masuria.core.executor.master.local.impl</module>
+    <module>org.seemantica.masuria.core.executor.peer.local.impl</module>
+    <module>org.seemantica.masuria.core.partitioner.master.local.impl</module>
+    <module>org.seemantica.masuria.core.partitioner.peer.local.impl</module>
+    <module>org.seemantica.masuria.core.router.master.local.impl</module>
+    <module>org.seemantica.masuria.core.router.peer.local.impl</module>
+    
+    <module>org.seemantica.masuria.core.registry.local.impl</module>
+
+  </modules>
+ 
+</project>

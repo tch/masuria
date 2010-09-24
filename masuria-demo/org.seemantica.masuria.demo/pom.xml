@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.seemantica.masuria</groupId>
+  <artifactId>org.seemantica.masuria.demo</artifactId>
+  <name>org.seemantica.masuria.demo</name>
+  <packaging>jar</packaging>
+  <version>0.0.1.M1-SNAPSHOT</version>
+
+  <parent>
+    <groupId>org.seemantica.masuria</groupId>
+    <artifactId>masuria-demo</artifactId>
+    <version>0.0.1.M1-SNAPSHOT</version>
+  </parent>
+  
+  <dependencies>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.barrier.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.barrier.peer.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.executor.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.executor.peer.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.partitioner.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.partitioner.peer.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.router.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.router.peer.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.registry.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.database.master.neo4j.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.database.peer.neo4j.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.datamodel.neo4j.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.demo.datamodel.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.demo.program.helloworld</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.demo.program.sssp</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+
+    <!-- testing -->
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <scope>test</scope>     
+    </dependency>
+
+  </dependencies>
+	
+</project>

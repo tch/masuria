@@ -1,0 +1,28 @@
+syntax: glob
+
+*.class
+*~
+*.bak
+*.old
+*.ser
+
+# ides (eclipse,) conf files
+.settings
+.classpath
+.project
+.manager
+
+# building
+target
+build
+tmp
+temp
+dist
+test-output
+build.log
+
+# other scms
+.svn
+.CVS
+.hg*
+

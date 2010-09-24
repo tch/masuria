@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <name>masuria-project</name>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.seemantica.masuria</groupId>
+  <artifactId>masuria-project</artifactId>
+  <packaging>pom</packaging>
+  <version>0.0.1.M1-SNAPSHOT</version>
+
+  <modules>
+    <module>masuria-framework</module>
+    <module>masuria-demo</module>
+    <module>masuria-sandbox</module>
+  </modules>
+
+  <properties>
+    
+    <!-- dependencies -->
+    <org.restlet.version>2.0-M6</org.restlet.version>
+    <org.openrdf.sesame.version>3.0.0-SNAPSHOT</org.openrdf.sesame.version>
+    <info.aduna.appbase.version>3.8.0-SNAPSHOT</info.aduna.appbase.version>
+    <org.slf4j.version>1.6.1</org.slf4j.version>
+    <ch.qos.logback.version>0.9.24</ch.qos.logback.version>
+    
+    <org.fitnesse.version>20100303</org.fitnesse.version>
+
+ 
+    <!-- build properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <plugin.maven.bundle.version>2.1.0</plugin.maven.bundle.version>
+    
+  </properties>
+
+
+  <build>
+    <pluginManagement>
+      <plugins>
+      
+				<plugin>
+				  <groupId>org.apache.felix</groupId>
+				  <artifactId>maven-bundle-plugin</artifactId>
+				  <version>${plugin.maven.bundle.version}</version>
+				  <extensions>true</extensions>
+				</plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <source>1.6</source>
+              <target>1.6</target>
+              <encoding>UTF-8</encoding>
+            </configuration>
+        </plugin>
+
+<!--      
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>aspectj-maven-plugin</artifactId>
+              <inherited>true</inherited>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>compile</goal>
+                          <goal>test-compile</goal>
+                      </goals>
+                  </execution>
+              </executions>
+              <configuration>
+                  <complianceLevel>1.6</complianceLevel>
+                  <aspectDirectory>src/main/aspect
+                  </aspectDirectory>
+                  <showWeaveInfo>true</showWeaveInfo>
+              </configuration>
+          </plugin>
+-->
+<!-- 
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <configuration>
+                  <descriptors>
+                      <descriptor>src/main/assembly/bin.xml
+                      </descriptor>
+                  </descriptors>
+              </configuration>
+              <executions>
+                  <execution>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>single</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+-->
+<!-- 
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>appassembler-maven-plugin</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <configuration>
+                <defaultJvmSettings>
+                    <systemProperties>
+                        <systemProperty>properties.location=conf</systemProperty>
+                    </systemProperties>
+                </defaultJvmSettings>
+                <daemons>
+                    <daemon>
+                        <id>${daemon.name}</id>
+                        <mainClass>${daemon.launcher}</mainClass>
+                        <platforms>
+                            <platform>jsw</platform>
+                        </platforms>
+                        <generatorConfigurations>
+                            <generatorConfiguration>
+                                <generator>jsw</generator>
+                                <includes>
+                                    <include>linux-x86-64</include>
+                                    <include>windows</include>
+                                </includes>
+                                <configuration>
+                                    <property>
+                                        <name>wrapper.console.loglevel
+                                        </name>
+                                        <value>INFO</value>
+                                    </property>
+                                    <property>
+                                        <name>wrapper.logfile</name>
+                                        <value>./logs/wrapper.log</value>
+                                    </property>
+                                    <property>
+                                        <name>set.default.REPO_DIR</name>
+                                        <value>lib</value>
+                                    </property>
+                                </configuration>
+                            </generatorConfiguration>
+                        </generatorConfigurations>
+                    </daemon>
+                </daemons>
+                <assembleDirectory>target/generated-resources/appassembler/jsw/${daemon.name}</assembleDirectory>
+                <repoPath>lib</repoPath>
+                <repositoryLayout>flat</repositoryLayout>
+            </configuration>
+          </plugin>          
+-->
+<!--
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+          </plugin>
+-->
+          
+      </plugins>
+    </pluginManagement>
+  </build>
+	
+  <dependencies>
+  
+    <dependency> <!--NOTE;tch: added explicitly as maven resolves it to version 0.9.17 -->
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${ch.qos.logback.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${ch.qos.logback.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${org.slf4j.version}</version>
+    </dependency>
+<!--     
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${org.slf4j.version}</version>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jul-to-slf4j</artifactId>
+        <version>${org.slf4j.version}</version>
+    </dependency>
+-->
+  </dependencies>
+
+
+  <dependencyManagement>
+  	
+    <dependencies>
+<!--
+      <dependency>
+	<groupId>org.seemantica.masuria</groupId>
+	<artifactId>org.seemantica.masuria.core.program</artifactId>
+	<version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+	<groupId>org.seemantica.masuria</groupId>
+	<artifactId>org.seemantica.masuria.core.datamodel</artifactId>
+	<version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+	<groupId>org.seemantica.masuria</groupId>
+	<artifactId>org.seemantica.masuria.core.executor</artifactId>
+	<version>${project.version}</version>
+      </dependency>
+-->
+
+<!--
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjrt</artifactId>
+        <version>1.6.5</version>
+      </dependency>
+-->
+
+<!--
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>4.0</version>
+          <exclusions>
+            <exclusion>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+            </exclusion>
+          </exclusions>
+      </dependency>
+-->
+<!-- 
+      <dependency>
+         <groupId>org.neo4j</groupId>
+         <artifactId>neo4j-apoc</artifactId>
+         <version>1.0</version>
+         <type>pom</type>
+      </dependency>
+-->
+
+
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>r06</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.neo4j</groupId>
+         <artifactId>neo4j-kernel</artifactId>
+         <version>1.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+        <version>3.1</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>commons-logging</artifactId>
+            <groupId>commons-logging</groupId>
+          </exclusion>
+          <exclusion>
+            <artifactId>commons-codec</artifactId>
+            <groupId>commons-codec</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.restlet</groupId>
+        <artifactId>org.restlet</artifactId>
+        <version>${org.restlet.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.noelios.restlet</groupId>
+        <artifactId>com.noelios.restlet</artifactId>
+        <version>${org.restlet.version}</version>
+        <scope>runtime</scope>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-runtime</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-model</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-store</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-sail-api</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-sail-inferencer</artifactId>
+        <version>${org.openrdf.sesame.version}</version>        
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-queryalgebra-evaluation</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-http-client</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-queryresultio-sparqlxml</artifactId>
+	<version>${org.openrdf.sesame.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.openrdf.sesame</groupId>
+        <artifactId>sesame-store-testsuite</artifactId>
+        <version>${org.openrdf.sesame.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>info.aduna.appbase</groupId>
+          <artifactId>aduna-appbase</artifactId>
+          <version>${info.aduna.appbase.version}</version>
+          <type>pom</type>
+          <scope>import</scope>
+      </dependency>
+            
+      <dependency>
+        <groupId>info.aduna.commons</groupId>
+        <artifactId>aduna-commons-iteration</artifactId>
+        <version>2.5.0</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>info.aduna.commons</groupId>
+        <artifactId>aduna-commons-io</artifactId>
+        <version>2.6.0</version>        
+      </dependency>
+      <dependency>
+        <groupId>jparsec</groupId>
+        <artifactId>jparsec</artifactId>
+        <version>2.0</version>
+      </dependency>
+      <dependency> <!-- TODO: replace with official release or use functional java -->
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-functor</artifactId>
+        <version>1.0-SNAPSHOT</version>      
+      </dependency>
+      <dependency>
+        <groupId>fast-md5</groupId>
+        <artifactId>fast-md5</artifactId>
+        <version>2.5</version>
+      </dependency>      
+      <dependency>
+        <groupId>net.sf.jopt-simple</groupId>
+        <artifactId>jopt-simple</artifactId>
+        <version>3.1</version>
+      </dependency>
+      <dependency>
+        <groupId>jline</groupId>
+        <artifactId>jline</artifactId>
+        <version>0.9.94</version>
+      </dependency>
+      
+      <!-- testing -->
+     <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.1</version>
+        <scope>test</scope>
+     </dependency>
+     <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>1.1</version>
+        <scope>test</scope>
+     </dependency>
+     <dependency>
+       <groupId>org.easymock</groupId>
+       <artifactId>easymock</artifactId>
+       <version>3.0</version>
+     </dependency>            
+    </dependencies>
+  </dependencyManagement>
+
+    <repositories>
+      <repository>
+         <id>neo4j-public-repository</id>
+         <name>Publically available Maven 2 repository for Neo4j</name>
+         <url>http://m2.neo4j.org </url>
+         <snapshots>
+           <enabled>true</enabled>
+         </snapshots>
+      </repository>
+      
+      <repository>
+        <id>repo-aduna-releases</id>
+        <name>Aduna Repository (releases)</name>
+        <url>http://repo.aduna-software.org/maven2/releases/</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>false</enabled></snapshots>
+        <layout>default</layout>
+      </repository>
+
+      <repository>
+        <id>repo-aduna-snapshots</id>
+        <name>Aduna Repository (snapshots)</name>
+        <url>http://repo.aduna-software.org/maven2/snapshots</url>
+        <releases><enabled>false</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+        <layout>default</layout>
+      </repository>
+      
+      
+    </repositories>
+
+</project>
