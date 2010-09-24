@@ -1,7 +1,5 @@
 package org.seemantica.masuria.core.program;
 
-
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
