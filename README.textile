@@ -60,11 +60,11 @@ h3. Getting Started
  While the targeted execution environment for the framework is an OSGi container, simple examples can be run locally via executable class _MasuriaDemoDriver_[5].
 
 
-h3.Development status
+h3. Development status
 
- This is a prototype created mainly to identify main components and develop a number of intuitions. It is evolving into 0.0.1 milestone.
+ This is a prototype created mainly to identify main components and develop adequate intuitions. It is evolving into 0.0.1 milestone.
  
-h4. TODO
+ h4. TODO
   
  * OSGIfying build and components
  ** provide master and peer applications
