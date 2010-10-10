@@ -14,12 +14,15 @@ syntax: glob
 
 # building
 target
+runner
 build
 tmp
 temp
 dist
-test-output
 build.log
+
+#local dependecies
+lib
 
 # other scms
 .svn

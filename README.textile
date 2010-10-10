@@ -1,0 +1,85 @@
+h2. Masuria Readme
+
+h3. Description
+
+Masuria is a system for distributed relational data processing. It has the following characteristics: 
+
+* simple programming model;
+* extensible APIs, suitable for adaptation to already existing storage technologies;
+* modular and pluggable implementation based on OSGi technology.
+
+
+h3. Sample Code
+
+The following is a job definition that computes Single Source Shortest Paths from the starting vertex in a graph to all other vertices in that graph. The algorithm is taken from the Google Pregel paper[3].
+
+
+bc.. public class SSSPJob extends JobBase<Neo4JElement, DistanceMessage>
+                         implements IJob<Neo4JElement, DistanceMessage> {
+
+  public SSSPJob(final IElementId id, final IProgram program,
+                 final JobExecutionContext executionContext) {
+
+    super(id, program, executionContext);
+  }
+
+  @Override
+  public void superStep() {
+
+    int minDist = this.isStartingElement() ? 0 : Integer.MAX_VALUE;
+        
+    IVertex v = this.getElement();
+    
+    for(DistanceMessage msg: messages()) { // Choose min. proposed distance 
+
+      minDist = Math.min(minDist, msg.getDistance() );
+
+    }
+        
+    if( minDist < this.getCurrentDistance() ) { //If improves the path, store and propagate
+      
+      this.setCurrentDistance(minDist);
+      
+      for(IEdge r: v.getOutgoingEdges(DemoRelationshipTypes.KNOWS) )  {
+        
+        IElement recipient = r.getOtherElement(v);
+        
+        int rDist = this.getLengthOf(r);
+        
+        this.sendMessage( new DistanceMessage(minDist+rDist, recipient.getId(), this.getId()) );
+        
+      }
+      
+    }
+    
+  }
+
+
+h3. Getting Started
+
+ While the targeted execution environment for the framework is an OSGi container, simple examples can be run locally via executable class _MasuriaDemoDriver_[5].
+
+
+h3. Related Work
+
+* Apache Hama[2]
+ 
+* Google Pregel[3]
+ 
+* CMU GraphLab[4]
+ 
+ and number of other research projects.
+
+
+h4. References
+
+
+fn1. "'A Bridging model for parallel computation', Leslie G. Valiant":http://portal.acm.org/citation.cfm?id=79181
+
+fn2. "Apache Hama":http://incubator.apache.org/hama/
+
+fn3. "Google Pregel":http://portal.acm.org/citation.cfm?id=1807167.1807184
+
+fn4. "GraphLab":http://www.graphlab.ml.cmu.du/
+
+fn5. "MasuriaDemoDriver.java":http://github.com/tch/masuria/blob/public/masuria-demo/org.seemantica.masuria.demo/src/main/java/org/seemantica/masuria/demo/MasuriaDemoDriver.java
