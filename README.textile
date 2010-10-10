@@ -1,16 +1,19 @@
 
-h3. Description
+h3. Project description
 
-Masuria is a system for distributed relational data processing. It has the following characteristics: 
+Masuria is a system for distributed relational data processing. It has following characteristics/goals: 
 
-* simple programming model;
-* extensible APIs, suitable for adaptation to already existing storage technologies;
-* modular and pluggable implementation based on OSGi technology.
+ * scalable and fault tolerant;
+ * easy to use with simple programming model;
+ * extensible APIs, modular and pluggable implementation based on OSGi technology;
+ * suitable for adaptation to a number of existing or future storage technologies.
+
 
 
 h3. Sample Code
 
 The following is a job definition that computes Single Source Shortest Paths from the starting vertex in a graph to all other vertices in that graph. The algorithm is taken from the Google Pregel paper[3].
+
 
 
 bc.. public class SSSPJob extends JobBase<Neo4JElement, DistanceMessage>
@@ -60,10 +63,11 @@ h3. Getting Started
  While the targeted execution environment for the framework is an OSGi container, simple examples can be run locally via executable class _MasuriaDemoDriver_[5].
 
 
+
 h3. Development status
 
  This is a prototype created mainly to identify main components and develop adequate intuitions. It is evolving into 0.0.1 milestone.
- 
+
 h4. TODO
   
  * OSGIfying build and components
@@ -73,6 +77,7 @@ h4. TODO
  * capability to run in a distributed environment 
  * add aggregator/reduce mechanism
  * add combiner framework
+
 
 
 h3. Related Work
@@ -86,10 +91,11 @@ h3. Related Work
  and number of other research projects.
 
 
+
 h4. References
 
 
-fn1. "'A Bridging model for parallel computation', Leslie G. Valiant":http://portal.acm.org/citation.cfm?id=79181
+fn1. "'A bridging model for parallel computation', Leslie G. Valiant":http://portal.acm.org/citation.cfm?id=79181
 
 fn2. "Apache Hama":http://incubator.apache.org/hama/
 
