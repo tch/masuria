@@ -15,8 +15,8 @@
 
   <modules>
     <module>org.seemantica.masuria.core</module>
-    <module>org.seemantica.masuria.core.manager.master.app</module>
-    <module>org.seemantica.masuria.core.manager.peer.app</module>
+    <module>org.seemantica.masuria.core.manager.master.impl</module>
+    <module>org.seemantica.masuria.core.manager.peer.impl</module>
   </modules>
 
 </project>

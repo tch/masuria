@@ -23,6 +23,18 @@
 
     <dependency>
      <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.manager.master.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
+     <artifactId>org.seemantica.masuria.core.manager.peer.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>org.seemantica.masuria</groupId>
      <artifactId>org.seemantica.masuria.core.barrier.master.local.impl</artifactId>
      <version>${project.version}</version>
     </dependency>

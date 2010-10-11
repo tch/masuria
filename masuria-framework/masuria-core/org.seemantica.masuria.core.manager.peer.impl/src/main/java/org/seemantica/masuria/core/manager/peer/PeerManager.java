@@ -11,7 +11,6 @@ import org.seemantica.masuria.core.registry.IDescriptor;
 import org.seemantica.masuria.core.router.IPeerRouter;
 
 
-
 public class PeerManager implements IPeerManager {
 	
 	private IDescriptor descriptor; //TODO;tch: currently Peer descriptor is equal to partition descriptor - ie. peer~partition or one partition per peer 
