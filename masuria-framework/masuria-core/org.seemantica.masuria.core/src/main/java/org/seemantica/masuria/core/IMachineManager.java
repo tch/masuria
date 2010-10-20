@@ -1,6 +1,8 @@
 package org.seemantica.masuria.core;
 
+import org.seemantica.masuria.core.manager.peer.IPeerManager;
 import org.seemantica.masuria.core.program.IProgram;
+import org.seemantica.masuria.core.registry.IDescriptorRegistry;
 
 
 /**
@@ -17,5 +19,6 @@ public interface IMachineManager {
 	void removeProgram(final IProgram program);
 	
 	void resetProgram(final IProgram program);
+
 	
 }

@@ -23,6 +23,14 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            
+            <!--  Warning building bundle org.seemantica.masuria:org.seemantica.masuria.core.manager.master.impl:bundle:0.0.1.M1-SNAPSHOT : Split package org/seemantica/masuria/core/manager/master
+                  Use directive -split-package:=(merge-first|merge-last|error|first) on Export/Private Package instruction to get rid of this warning
+                  Package found in   [Jar:., Jar:org.seemantica.masuria.core]
+             -->
+            <Export-Package>
+              org.seemantica.masuria.core.*
+            </Export-Package>
           </instructions>
         </configuration>
       </plugin>
@@ -30,13 +38,14 @@
     </plugins>
   </build>
 
-  <dependencies>
 
-    <dependency> <!-- TODO;tch: to be removed eventually, IVertex is leaking -->
+  <dependencies>
+  
+<!-- TODO;tch: to be removed eventually, IVertex is leaking -->
+    <dependency> 
 	    <groupId>org.neo4j</groupId>
 	    <artifactId>neo4j-kernel</artifactId>
     </dependency>
-      
       
     <dependency>
       <groupId>junit</groupId>

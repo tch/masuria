@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0"
+               name="org.seemantica.masuria.core.barrier.master.local.impl.LocalMasterBarrier">
+
+  <implementation class="org.seemantica.masuria.core.barrier.master.local.impl.LocalMasterBarrier"/>
+  
+  <service>
+    <provide interface="org.seemantica.masuria.core.barrier.IMasterBarrier"/>
+  </service>
+ 
+</scr:component>

@@ -1,5 +1,8 @@
 package org.seemantica.masuria.core.manager.master;
 
+
+import org.osgi.service.component.ComponentContext;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +18,15 @@ import org.seemantica.masuria.core.program.IProgram;
 import org.seemantica.masuria.core.registry.IDescriptor;
 import org.seemantica.masuria.core.registry.IDescriptorRegistry;
 import org.seemantica.masuria.core.router.IMasterRouter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 
 public class MasterManager implements IMasterManager {
 
+	private Logger logger = LoggerFactory.getLogger(MasterManager.class);
+	
 	/**
 	 * Collection of peers that belong to this cluster
 	 */
@@ -31,7 +38,7 @@ public class MasterManager implements IMasterManager {
 	//TODO;tch: this ultimately will be a collection of programs
 	private IProgram program;
 
-	
+
 	private IDescriptorRegistry<IPeerManager> peerRegistry;
 	
 	private IMasterExecutor programExecutor;
@@ -47,9 +54,7 @@ public class MasterManager implements IMasterManager {
 	
 
 
-	public MasterManager(final IDescriptorRegistry<IPeerManager> peerRegistry) {
-		
-		this.peerRegistry = peerRegistry;
+	public MasterManager() {
 		
 		this.peers = new ArrayList<IDescriptor>();
 		
@@ -110,6 +115,11 @@ public class MasterManager implements IMasterManager {
 
 
 	
+	@Override
+	public void associatePeerRegistry(final IDescriptorRegistry<IPeerManager> peerRegistry) {
+		
+		this.peerRegistry = peerRegistry;
+	}
 	
 	
 	@Override
@@ -231,5 +241,16 @@ public class MasterManager implements IMasterManager {
 		
 		this.barrier = barrier;		
 	}
+	
+
+	//OSGI routines
+    protected void activate(ComponentContext context) {
+        System.out.print("MasterManager component activated");
+        logger.debug("MasterManager component activated");
+    }
+    
+    protected void deactivate(ComponentContext context) {
+        logger.debug("MasterManager component deactivated");
+    }
 	
 }

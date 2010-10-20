@@ -1,7 +1,7 @@
 
 h3. Project description
 
-Masuria is a system for distributed relational data processing. It has following characteristics/goals: 
+Masuria is a system for distributed processing of relational data, ie. data naturally described as graphs. It has following characteristics/goals: 
 
  * scalable and fault tolerant;
  * easy to use with simple programming model;
@@ -29,27 +29,24 @@ bc.. public class SSSPJob extends JobBase<Neo4JElement, DistanceMessage>
   public void superStep() {
 
     int minDist = this.isStartingElement() ? 0 : Integer.MAX_VALUE;
-        
-    IVertex v = this.getElement();
     
     for(DistanceMessage msg: messages()) { // Choose min. proposed distance 
 
       minDist = Math.min(minDist, msg.getDistance() );
 
     }
-        
-    if( minDist < this.getCurrentDistance() ) { //If improves the path, store and propagate
+    
+    IVertex v = this.getElement();
+            
+    if( minDist < this.getCurrentDistance() ) { //If minDist improves current path, store and propagate
       
       this.setCurrentDistance(minDist);
       
       for(IEdge r: v.getOutgoingEdges(DemoRelationshipTypes.KNOWS) )  {
         
         IElement recipient = r.getOtherElement(v);
-        
         int rDist = this.getLengthOf(r);
-        
-        this.sendMessage( new DistanceMessage(minDist+rDist, recipient.getId(), this.getId()) );
-        
+        this.sendMessage( new DistanceMessage(minDist+rDist, recipient.getId(), this.getId()) );        
       }
       
     }
@@ -66,17 +63,17 @@ h3. Getting Started
 
 h3. Development status
 
- This is a prototype created mainly to identify main components and develop adequate intuitions. It is evolving into 0.0.1 milestone.
+ This is a prototype created mainly to identify main components and develop adequate intuitions. The software is quickly evolving into first milestone that could be run in a distributed environment.
 
 h4. TODO
   
  * OSGIfying build and components
  ** provide master and peer applications
  ** bundle-based program/job management
- ** osgi-enabled configuration management/logging
+ ** osgi-enabled configuration management and logging
  * capability to run in a distributed environment 
- * add aggregator/reduce mechanism
- * add combiner framework
+ * add aggregate/reduce framework
+ * add combiner mechanism
 
 
 

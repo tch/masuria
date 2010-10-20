@@ -54,12 +54,10 @@ public class MasuriaDemoDriver {
 	 */
 	public static void main(String[] args) {
 		
-
+		IMasterManager clusterManager = new MasterManager();
+		
 		IDescriptorRegistry< IPeerManager >  peerRegistry = new LocalDescriptorRegistryBase<IPeerManager>();
-		
-		
-		IMasterManager clusterManager = new MasterManager(peerRegistry);
-
+		clusterManager.associatePeerRegistry(peerRegistry);
 		
 		IMasterPartitioner cPartitioner = new LocalMasterPartitioner();
 		clusterManager.associatePartitioner(cPartitioner);

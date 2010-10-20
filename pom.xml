@@ -21,13 +21,19 @@
     <info.aduna.appbase.version>3.8.0-SNAPSHOT</info.aduna.appbase.version>
     <org.slf4j.version>1.6.1</org.slf4j.version>
     <ch.qos.logback.version>0.9.24</ch.qos.logback.version>
+    <javax.transaction.version>1.1.0</javax.transaction.version>
+    
+    <org.osgi.core.version>4.2.0</org.osgi.core.version>
+    <org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
     
     <org.fitnesse.version>20100303</org.fitnesse.version>
 
  
     <!-- build properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.osgi.runner.framework>felix</project.build.osgi.runner.framework>
+    
+    <project.provision.osgi.framework>felix</project.provision.osgi.framework>
+    <project.provision.osgi.profiles>log,ds</project.provision.osgi.profiles>
     
     <!-- plugins versions -->
     <plugin.bundle.version>2.1.0</plugin.bundle.version>
@@ -181,17 +187,19 @@
   </build>
 	
   <dependencies>
-  
+
     <dependency> <!--NOTE;tch: added explicitly as maven resolves it to version 0.9.17 -->
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
         <version>${ch.qos.logback.version}</version>
     </dependency>
+
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
         <version>${ch.qos.logback.version}</version>
     </dependency>
+
     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
@@ -216,25 +224,6 @@
   <dependencyManagement>
   	
     <dependencies>
-<!--
-      <dependency>
-	<groupId>org.seemantica.masuria</groupId>
-	<artifactId>org.seemantica.masuria.core.program</artifactId>
-	<version>${project.version}</version>
-      </dependency>
-
-      <dependency>
-	<groupId>org.seemantica.masuria</groupId>
-	<artifactId>org.seemantica.masuria.core.datamodel</artifactId>
-	<version>${project.version}</version>
-      </dependency>
-
-      <dependency>
-	<groupId>org.seemantica.masuria</groupId>
-	<artifactId>org.seemantica.masuria.core.executor</artifactId>
-	<version>${project.version}</version>
-      </dependency>
--->
 
 <!--
       <dependency>
@@ -257,26 +246,29 @@
           </exclusions>
       </dependency>
 -->
-<!-- 
-      <dependency>
-         <groupId>org.neo4j</groupId>
-         <artifactId>neo4j-apoc</artifactId>
-         <version>1.0</version>
-         <type>pom</type>
-      </dependency>
--->
-
 
       <dependency>
-          <groupId>com.google.guava</groupId>
-          <artifactId>guava</artifactId>
-          <version>r06</version>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.compendium</artifactId>
+        <version>${org.osgi.compendium.version}</version>
       </dependency>
 
       <dependency>
-         <groupId>org.neo4j</groupId>
-         <artifactId>neo4j-kernel</artifactId>
-         <version>1.1</version>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.core</artifactId>
+        <version>${org.osgi.core.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>r06</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-kernel</artifactId>
+        <version>1.1</version>
       </dependency>
 
       <dependency>
@@ -308,72 +300,7 @@
         <scope>runtime</scope>
       </dependency>
       
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-runtime</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-model</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-store</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-sail-api</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-sail-inferencer</artifactId>
-        <version>${org.openrdf.sesame.version}</version>        
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-queryalgebra-evaluation</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-http-client</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-queryresultio-sparqlxml</artifactId>
-	<version>${org.openrdf.sesame.version}</version>
-      </dependency>
 
-      <dependency>
-        <groupId>org.openrdf.sesame</groupId>
-        <artifactId>sesame-store-testsuite</artifactId>
-        <version>${org.openrdf.sesame.version}</version>
-      </dependency>
-
-      <dependency>
-          <groupId>info.aduna.appbase</groupId>
-          <artifactId>aduna-appbase</artifactId>
-          <version>${info.aduna.appbase.version}</version>
-          <type>pom</type>
-          <scope>import</scope>
-      </dependency>
-            
-      <dependency>
-        <groupId>info.aduna.commons</groupId>
-        <artifactId>aduna-commons-iteration</artifactId>
-        <version>2.5.0</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>info.aduna.commons</groupId>
-        <artifactId>aduna-commons-io</artifactId>
-        <version>2.6.0</version>        
-      </dependency>
       <dependency>
         <groupId>jparsec</groupId>
         <artifactId>jparsec</artifactId>
@@ -423,14 +350,14 @@
 
     <repositories>
       <repository>
-         <id>neo4j-public-repository</id>
-         <name>Publically available Maven 2 repository for Neo4j</name>
-         <url>http://m2.neo4j.org </url>
-         <snapshots>
-           <enabled>true</enabled>
-         </snapshots>
+        <id>neo4j-public-repository</id>
+        <name>Publically available Maven 2 repository for Neo4j</name>
+        <url>http://m2.neo4j.org </url>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
       </repository>
-      
+<!--      
       <repository>
         <id>repo-aduna-releases</id>
         <name>Aduna Repository (releases)</name>
@@ -439,7 +366,16 @@
         <snapshots><enabled>false</enabled></snapshots>
         <layout>default</layout>
       </repository>
-      
+
+      <repository>
+        <id>repo-aduna-snapshots</id>
+        <name>Aduna Repository (snapshots)</name>
+        <url>http://repo.aduna-software.org/maven2/snapshots</url>
+        <releases><enabled>false</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+        <layout>default</layout>
+      </repository>
+ -->     
       <repository>
         <id>com.springsource.repository.bundles.release</id>
         <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
@@ -451,15 +387,6 @@
         <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
         <url>http://repository.springsource.com/maven/bundles/external</url>
       </repository> 
-
-      <repository>
-        <id>repo-aduna-snapshots</id>
-        <name>Aduna Repository (snapshots)</name>
-        <url>http://repo.aduna-software.org/maven2/snapshots</url>
-        <releases><enabled>false</enabled></releases>
-        <snapshots><enabled>true</enabled></snapshots>
-        <layout>default</layout>
-      </repository>
       
     </repositories>
 

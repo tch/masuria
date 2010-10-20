@@ -1,6 +1,5 @@
 package org.seemantica.masuria.core.partitioner.master.local.impl;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -11,6 +11,7 @@ import org.seemantica.masuria.core.partitioner.IMasterPartitioner;
 import org.seemantica.masuria.core.program.IMessage;
 import org.seemantica.masuria.core.program.IProgram;
 import org.seemantica.masuria.core.registry.IDescriptor;
+import org.seemantica.masuria.core.registry.IDescriptorRegistry;
 import org.seemantica.masuria.core.router.IMasterRouter;
 
 
@@ -27,6 +28,8 @@ public interface IMasterManager extends IMachineManager {
 	
 	void isFinishedProgram(final IProgram program);
 
+	
+	void associatePeerRegistry(IDescriptorRegistry<IPeerManager> peerRegistry);
 	
 	void addPeer(final IDescriptor nodeId);
 	

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.seemantica.masuria</groupId>
+  <artifactId>org.seemantica.masuria.core.manager.master.provision</artifactId>
+  <name>org.seemantica.masuria.core.manager.master.provision module</name>
+  <packaging>pom</packaging>
+  <version>0.0.1.M1-SNAPSHOT</version>
+
+  <parent>
+    <groupId>org.seemantica.masuria</groupId>
+    <artifactId>masuria-core</artifactId>
+    <version>0.0.1.M1-SNAPSHOT</version>
+  </parent>
+
+<!--
+  <properties>
+    <conf.app.management.log.level>trace</conf.app.management.log.level>
+    <conf.app.management.log.path>${basedir}/target/logs</conf.app.management.log.path>
+    <conf.app.management.log.filename>masuria</conf.app.management.log.filename>
+  </properties>
+-->
+
+  <build>
+ 
+    <plugins>
+    
+      <plugin>
+        <groupId>org.ops4j</groupId>
+        <artifactId>maven-pax-plugin</artifactId>
+        <configuration>
+          <!-- <args>file://${basedir}/pax-runner.arg</args> -->
+          <framework>${project.provision.osgi.framework}</framework>
+          <profiles>${project.provision.osgi.profiles}</profiles>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+
+  </build>
+
+  <dependencies>
+  
+    <!-- pax runner deploys the following dependencies -->
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.manager.master.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.barrier.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.executor.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.partitioner.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.router.master.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.registry.local.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.database.master.neo4j.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+     <groupId>${project.groupId}</groupId>
+     <artifactId>org.seemantica.masuria.core.datamodel.neo4j.impl</artifactId>
+     <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.compendium</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>com.springsource.javax.transaction</artifactId>
+      <version>${javax.transaction.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency> 
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j-kernel</artifactId>
+    </dependency>
+    
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <scope>test</scope>     
+    </dependency>
+
+  </dependencies>
+	
+</project>

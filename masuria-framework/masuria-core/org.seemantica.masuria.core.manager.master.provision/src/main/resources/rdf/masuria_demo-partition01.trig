@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://www.chodakowski.info/linkeddata/> .
+
+{
+  :Alice foaf:knows :Bob;
+         foaf:knows :David;
+         foaf:name "Alice A.";
+         foaf:gender "female";
+         :birthDate "1970-01-01T00:00:00Z"^^xsd:dateTime.
+  
+  :Bob foaf:knows :Charlie;
+       foaf:name "Bob B.";
+       foaf:gender "male";
+       foaf:mbox "bob@mail.ovi.com";
+       :birthDate "1971-01-01T00:00:00Z"^^xsd:dateTime.
+}

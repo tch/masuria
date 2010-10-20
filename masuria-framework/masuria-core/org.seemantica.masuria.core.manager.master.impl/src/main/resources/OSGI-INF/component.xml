@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0"
+               name="org.seemantica.masuria.core.manager.master.MasterManager"
+               immediate="true">
+
+  <implementation class="org.seemantica.masuria.core.manager.master.MasterManager"/>
+  
+  <service>
+    <provide interface="org.seemantica.masuria.core.manager.master.IMasterManager"/>
+  </service>
+    
+  <reference name="PeerRegistry" interface="org.seemantica.masuria.core.registry.IDescriptorRegistry" cardinality="1..1" bind="associatePeerRegistry" policy="static"/>
+      
+  <reference name="MasterExecutor" interface="org.seemantica.masuria.core.executor.IMasterExecutor" cardinality="1..1" bind="associateProgramExecutor" policy="static"/>
+  
+  <reference name="MasterPartitioner" interface="org.seemantica.masuria.core.partitioner.IMasterPartitioner" cardinality="1..1" bind="associatePartitioner" policy="static"/>
+  
+  <reference name="MasterBarrier" interface="org.seemantica.masuria.core.barrier.IMasterBarrier" cardinality="1..1" bind="associateBarrier" policy="static"/>
+  
+  <reference name="MasterRouter" interface="org.seemantica.masuria.core.router.IMasterRouter" cardinality="1..1" bind="associateMessageRouter" policy="static"/>
+  
+  <reference name="MasterDatabase" interface="org.seemantica.masuria.core.database.IMasterDatabase" cardinality="1..1" bind="associateDatabase" policy="static"/>
+  
+</scr:component>

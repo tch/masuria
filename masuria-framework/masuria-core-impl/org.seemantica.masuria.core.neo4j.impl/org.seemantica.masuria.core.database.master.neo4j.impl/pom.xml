@@ -16,36 +16,30 @@
   <build>
     <plugins>
       <plugin>
-	<groupId>org.apache.felix</groupId>
-	<artifactId>maven-bundle-plugin</artifactId>
-	<configuration>
-	  <instructions>
-	    <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-	    <!--
-	    <Import-Package>
-	      org.osgi.framework;version="[1.5.0,2.0.0)",
-	      org.slf4j;version="[1.5.0,2.0.0)",
-	    </Import-Package>  
-	    -->
-	    <!--
-	    <Bundle-Activator>org.seemantica.masuria.core.</Bundle-Activator>
-	    -->
-	  </instructions>
-	</configuration>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Service-Component>OSGI-INF/component.xml</Service-Component>
+            <Embed-Dependency>org.seemantica.masuria.core.datamodel.neo4j.impl;scope=compile|runtime</Embed-Dependency>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>
 
+
   <dependencies>
 
     <dependency>
-      <groupId>org.seemantica.masuria</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>org.seemantica.masuria.core</artifactId>
       <version>${project.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.seemantica.masuria</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>org.seemantica.masuria.core.datamodel.neo4j.impl</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -54,12 +48,12 @@
       <groupId>org.neo4j</groupId>
       <artifactId>neo4j-kernel</artifactId>
     </dependency>
-
+<!-- 
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
     </dependency>
-
+-->
     <!-- testing -->
 
     <dependency>

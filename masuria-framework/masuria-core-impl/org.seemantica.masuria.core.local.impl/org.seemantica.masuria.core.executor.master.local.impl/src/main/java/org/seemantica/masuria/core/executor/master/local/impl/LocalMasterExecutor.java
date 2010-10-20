@@ -1,5 +1,6 @@
 package org.seemantica.masuria.core.executor.master.local.impl;
 
+import org.osgi.service.component.ComponentContext;
 import org.seemantica.masuria.core.MasterLevelComponentBase;
 import org.seemantica.masuria.core.executor.IMasterExecutor;
 import org.seemantica.masuria.core.manager.peer.IPeerManager;
@@ -133,6 +134,17 @@ public class LocalMasterExecutor extends MasterLevelComponentBase
 		return finished;
 	}
 
+	
+    protected void activate(final ComponentContext context) {
+        System.out.print("LocalMasterExecutor component activated");
+        logger.debug("LocalMasterExecutor component activated");
+    }
+    
+    protected void deactivate(final ComponentContext context) {
+        logger.debug("LocalMasterExecutor component deactivated");
+    }
+	
+	
 	//NOTE;tch, scala: large parts od start/step differ only by a single function invocation,
 	// with functions as first-class-objects it should be easy to generalize a common subroutine 
 }
