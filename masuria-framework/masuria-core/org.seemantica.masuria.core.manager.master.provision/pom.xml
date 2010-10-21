@@ -32,6 +32,10 @@
           <!-- <args>file://${basedir}/pax-runner.arg</args> -->
           <framework>${project.provision.osgi.framework}</framework>
           <profiles>${project.provision.osgi.profiles}</profiles>
+          <deployURLs>mvn:org.apache.felix/org.apache.felix.configadmin/1.2.8@2,
+                      mvn:org.apache.felix/org.apache.felix.scr/1.6.0@2
+          </deployURLs>
+          
         </configuration>
       </plugin>
       

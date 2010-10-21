@@ -25,19 +25,6 @@
  
     <plugins>
     
-      <plugin>
-        <groupId>org.ops4j</groupId>
-        <artifactId>maven-pax-plugin</artifactId>
-        <configuration>
-          <!-- <args>file://${basedir}/pax-runner.arg</args> -->
-          <framework>${project.build.osgi.runner.framework}</framework>
-          <deployURLs>file://${basedir}/target/${project.artifactId}-${project.version}.jar
-          </deployURLs>
-          <profiles>minimal</profiles>
-        </configuration>
-      </plugin>
-    
-    
     <!-- 
       <plugin>
         <groupId>org.codehaus.tycho</groupId>

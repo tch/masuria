@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0"
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0"
                name="org.seemantica.masuria.core.manager.master.MasterManager"
                immediate="true">
 

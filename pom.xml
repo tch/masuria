@@ -33,7 +33,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
     <project.provision.osgi.framework>felix</project.provision.osgi.framework>
-    <project.provision.osgi.profiles>log,ds</project.provision.osgi.profiles>
+    <project.provision.osgi.profiles>log</project.provision.osgi.profiles>
     
     <!-- plugins versions -->
     <plugin.bundle.version>2.1.0</plugin.bundle.version>
@@ -181,9 +181,65 @@
             <artifactId>maven-jar-plugin</artifactId>
           </plugin>
 -->
+        <plugin>
+          <groupId>com.mycila.maven-license-plugin</groupId>
+          <artifactId>maven-license-plugin</artifactId>
+          <configuration>
+            <basedir>${basedir}</basedir>
+            <header>./src/license/license_header.txt</header>
+            <!--
+            <validHeaders>
+                <validHeader>/otherSupportedHeader.txt</validHeader>
+                <validHeader>http://www.company.com/yetAnotherSupportedHeader.txt</validHeader>
+            </validHeaders>
+            -->
+            <quiet>false</quiet>
+            <failIfMissing>true</failIfMissing>
+            <aggregate>false</aggregate>
+            <includes>
+                <include>src/**</include>
+                <include>**/test/**</include>
+            </includes>
+            <excludes>
+                <exclude>RUNNER/**</exclude>
+                <exclude>.clover/**</exclude>
+                <exclude>**/*.properties</exclude>
+            </excludes>
+            <useDefaultExcludes>true</useDefaultExcludes>
+            <!-- 
+            <mapping>
+                <jwc>XML_STYLE</jwc>
+                <application>XML_STYLE</application>
+                <myFileExtension>JAVADOC_STYLE</myFileExtension>
+            </mapping>
+             -->
+            <useDefaultMapping>true</useDefaultMapping>
+            <properties>
+                <name>${project.name}</name>
+                <year>${project.inceptionYear}</year>
+                <holder>Tomasz Chodakowski</holder>
+                <email>tch@wp.eu</email>
+            </properties>
+            <encoding>UTF-8</encoding>
+             <!--
+            <headerDefinitions>
+                <headerDefinition>def1.xml</headerDefinition>
+                <headerDefinition>def2.xml</headerDefinition>
+            </headerDefinitions>
+             -->
+          </configuration>
+          <executions>
+            <execution>
+                <goals>
+                    <goal>check</goal>
+                </goals>
+            </execution>
+          </executions>
+        </plugin>
           
       </plugins>
     </pluginManagement>
+
   </build>
 	
   <dependencies>
