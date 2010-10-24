@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0"
-               name="org.seemantica.masuria.core.datamodel.neo4j.impl.Neo4JElement">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
 
   <implementation class="org.seemantica.masuria.core.datamodel.neo4j.impl.Neo4JElement"/>
   
