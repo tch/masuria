@@ -22,6 +22,7 @@
     <org.slf4j.version>1.6.1</org.slf4j.version>
     <ch.qos.logback.version>0.9.24</ch.qos.logback.version>
     <javax.transaction.version>1.1.0</javax.transaction.version>
+    <org.neo4j.version>1.1.1</org.neo4j.version>
     
     <org.osgi.core.version>4.2.0</org.osgi.core.version>
     <org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
@@ -331,7 +332,7 @@
       <dependency>
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-kernel</artifactId>
-        <version>1.1</version>
+        <version>${org.neo4j.version}</version>
       </dependency>
 
       <dependency>
@@ -415,7 +416,7 @@
       <repository>
         <id>neo4j-public-repository</id>
         <name>Publically available Maven 2 repository for Neo4j</name>
-        <url>http://m2.neo4j.org </url>
+        <url>http://m2.neo4j.org</url>
         <snapshots>
           <enabled>true</enabled>
         </snapshots>
