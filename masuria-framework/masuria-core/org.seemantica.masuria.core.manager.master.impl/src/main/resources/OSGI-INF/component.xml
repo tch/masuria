@@ -4,9 +4,10 @@
 <!--name="org.seemantica.masuria.core.manager.master.MasterManager" -->
 
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0"  
-               immediate="true">
+               immediate="true"
+               activate="activate">
 
-  <implementation class="org.seemantica.masuria.core.manager.master.MasterManager"/>
+  <implementation class="org.seemantica.masuria.core.manager.master.impl.MasterManager"/>
   
   <service>
     <provide interface="org.seemantica.masuria.core.manager.master.IMasterManager"/>
@@ -23,5 +24,5 @@
   <reference name="MasterRouter" interface="org.seemantica.masuria.core.router.IMasterRouter" cardinality="1..1" bind="associateMessageRouter" policy="static"/>
   
   <reference name="MasterDatabase" interface="org.seemantica.masuria.core.database.IMasterDatabase" cardinality="1..1" bind="associateDatabase" policy="static"/>
-  
+
 </scr:component>

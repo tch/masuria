@@ -22,6 +22,7 @@
           <instructions>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Service-Component>OSGI-INF/component.xml</Service-Component>
+            <!-- TODO;tch: get rid of this dependency eventually -->
             <Embed-Dependency>org.seemantica.masuria.core.datamodel.neo4j.impl;scope=compile|runtime</Embed-Dependency>
           </instructions>
         </configuration>
@@ -36,17 +37,21 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>org.seemantica.masuria.core</artifactId>
       <version>${project.version}</version>
+      <scope>provided</scope>
     </dependency>
 
+    <!-- TODO;tch: redesign this dependency -->
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>org.seemantica.masuria.core.datamodel.neo4j.impl</artifactId>
       <version>${project.version}</version>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.neo4j</groupId>
       <artifactId>neo4j-kernel</artifactId>
+      <scope>provided</scope>
     </dependency>
 <!-- 
     <dependency>

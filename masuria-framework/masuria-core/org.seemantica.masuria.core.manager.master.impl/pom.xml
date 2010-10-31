@@ -67,6 +67,7 @@
      <groupId>${project.groupId}</groupId>
      <artifactId>org.seemantica.masuria.core</artifactId>
      <version>${project.version}</version>
+     <scope>provided</scope>
     </dependency>
 
     <dependency>

@@ -136,7 +136,6 @@ public class LocalMasterExecutor extends MasterLevelComponentBase
 
 	
     protected void activate(final ComponentContext context) {
-        System.out.print("LocalMasterExecutor component activated");
         logger.debug("LocalMasterExecutor component activated");
     }
     

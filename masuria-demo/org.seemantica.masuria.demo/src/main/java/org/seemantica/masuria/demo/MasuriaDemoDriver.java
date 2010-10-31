@@ -23,7 +23,7 @@ import org.seemantica.masuria.core.executor.IPeerExecutor;
 import org.seemantica.masuria.core.executor.master.local.impl.LocalMasterExecutor;
 import org.seemantica.masuria.core.executor.peer.local.impl.LocalPeerExecutor;
 import org.seemantica.masuria.core.manager.master.IMasterManager;
-import org.seemantica.masuria.core.manager.master.MasterManager;
+import org.seemantica.masuria.core.manager.master.impl.MasterManager;
 import org.seemantica.masuria.core.manager.peer.IPeerManager;
 import org.seemantica.masuria.core.manager.peer.PeerManager;
 import org.seemantica.masuria.core.partitioner.IMasterPartitioner;

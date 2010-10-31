@@ -3,13 +3,18 @@ package org.seemantica.masuria.core.registry.local.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.osgi.service.component.ComponentContext;
 import org.seemantica.masuria.core.registry.IDescribable;
 import org.seemantica.masuria.core.registry.IDescriptor;
 import org.seemantica.masuria.core.registry.IDescriptorRegistry;
 import org.seemantica.masuria.core.registry.UUIDDescriptorBase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LocalDescriptorRegistryBase<E extends IDescribable> implements IDescriptorRegistry<E>  {
+	
+	private Logger logger = LoggerFactory.getLogger(LocalDescriptorRegistryBase.class);
 
 	private Map<IDescriptor, E> elements;
 	private Map<IDescriptor, Integer> sequences;
@@ -59,4 +64,14 @@ public class LocalDescriptorRegistryBase<E extends IDescribable> implements IDes
 	}
 
 
+	//OSGI routines
+    protected void activate(ComponentContext context) {
+        logger.debug("LocalDescriptorRegistry component activated");
+        //throw new RuntimeException("Runtime Exception");
+    }
+    
+    protected void deactivate(ComponentContext context) {
+        logger.debug("LocalDescriptorRegistry component deactivated");
+    }
+	
 }	

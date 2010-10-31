@@ -1,4 +1,4 @@
-package org.seemantica.masuria.core.manager.master;
+package org.seemantica.masuria.core.manager.master.impl;
 
 
 import org.osgi.service.component.ComponentContext;
@@ -11,6 +11,7 @@ import org.seemantica.masuria.core.database.IMasterDatabase;
 import org.seemantica.masuria.core.datamodel.IElement;
 import org.seemantica.masuria.core.datamodel.IElementId;
 import org.seemantica.masuria.core.executor.IMasterExecutor;
+import org.seemantica.masuria.core.manager.master.IMasterManager;
 import org.seemantica.masuria.core.manager.peer.IPeerManager;
 import org.seemantica.masuria.core.partitioner.IMasterPartitioner;
 import org.seemantica.masuria.core.program.IMessage;
@@ -119,6 +120,8 @@ public class MasterManager implements IMasterManager {
 	public void associatePeerRegistry(final IDescriptorRegistry<IPeerManager> peerRegistry) {
 		
 		this.peerRegistry = peerRegistry;
+		
+		logger.debug("PeerRegistry component bound");
 	}
 	
 	
@@ -245,8 +248,8 @@ public class MasterManager implements IMasterManager {
 
 	//OSGI routines
     protected void activate(ComponentContext context) {
-        System.out.print("MasterManager component activated");
         logger.debug("MasterManager component activated");
+        //throw new RuntimeException("Runtime Exception");
     }
     
     protected void deactivate(ComponentContext context) {
