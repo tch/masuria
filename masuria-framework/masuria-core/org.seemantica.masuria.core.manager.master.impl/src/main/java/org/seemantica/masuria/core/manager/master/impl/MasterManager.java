@@ -227,6 +227,8 @@ public class MasterManager implements IMasterManager {
 	@Override
 	public void associateDatabase(final IMasterDatabase<? extends IElement> database) {
 		
+		database.associateWithClusterManager(this);
+		
 		this.database  = database;
 	}
 
@@ -241,6 +243,8 @@ public class MasterManager implements IMasterManager {
 
 	@Override
 	public void associateBarrier(final IMasterBarrier barrier) {
+		
+		barrier.associateWithClusterManager(this);
 		
 		this.barrier = barrier;		
 	}

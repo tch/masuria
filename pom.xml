@@ -32,7 +32,6 @@
  
     <!-- build properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-          <scope>provided</scope>
     <project.provision.osgi.framework>felix</project.provision.osgi.framework>
     <project.provision.osgi.profiles>log</project.provision.osgi.profiles>
     

@@ -64,7 +64,7 @@ public class MasuriaDemoDriver {
 		
 		//initialize neo4j cluster database
 		GraphDatabaseService graphDb = new EmbeddedGraphDatabase ( "./target/neo" );
-		IMasterDatabase<Neo4JElement> cDatabase = new LocalNeo4JMasterDatabase(graphDb, cPartitioner);
+		IMasterDatabase<Neo4JElement> cDatabase = new LocalNeo4JMasterDatabase(graphDb);
 		clusterManager.associateDatabase(cDatabase);
 
 		

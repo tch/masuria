@@ -41,11 +41,12 @@
     </dependency>
 
     <!-- TODO;tch: redesign this dependency -->
+ 
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>org.seemantica.masuria.core.datamodel.neo4j.impl</artifactId>
       <version>${project.version}</version>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
