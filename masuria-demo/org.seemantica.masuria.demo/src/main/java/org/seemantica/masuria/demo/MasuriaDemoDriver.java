@@ -138,7 +138,7 @@ public class MasuriaDemoDriver {
 		try {
 
 			Node n01p1, n02p1, n03p1, n04p1;
-			Relationship rn01n02, rn02n03, rn01n04;
+			Relationship rn01n02, rn01n03, rn01n04, rn02n03;
 			{//partition01
 				
 				n01p1 = graphDb.createNode();
@@ -153,19 +153,22 @@ public class MasuriaDemoDriver {
 				n03p1.setProperty( "nodeName", "node03-p01" );
 				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n03p1, graphDb), pm01.getDescriptor());
 				
-				n04p1 = graphDb.createNode();
-				n04p1.setProperty( "nodeName", "node04-p01" );
-				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n04p1, graphDb), pm01.getDescriptor());
+//				n04p1 = graphDb.createNode();
+//				n04p1.setProperty( "nodeName", "node04-p01" );
+//				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n04p1, graphDb), pm01.getDescriptor());
 				
 				rn01n02 = n01p1.createRelationshipTo( n02p1, DemoRelationshipTypes.KNOWS );
 				rn01n02.setProperty( "relationshipName", "node01-p1->node02-p1" );
 				rn01n02.setProperty( "relationshipDistance", 1 );
+				rn01n03 = n01p1.createRelationshipTo( n03p1, DemoRelationshipTypes.KNOWS );
+				rn01n03.setProperty( "relationshipName", "node01-p1->node03-p1" );
+				rn01n03.setProperty( "relationshipDistance", 10 );
+//				rn01n04 = n01p1.createRelationshipTo( n04p1, DemoRelationshipTypes.KNOWS );
+//				rn01n04.setProperty( "relationshipName", "node01-p1->node04-p1" );
+//				rn01n04.setProperty( "relationshipDistance", 10 );
 				rn02n03 = n02p1.createRelationshipTo( n03p1, DemoRelationshipTypes.KNOWS );
 				rn02n03.setProperty( "relationshipName", "node02-p1->node03-p1" );
 				rn02n03.setProperty( "relationshipDistance", 1 );
-				rn01n04 = n01p1.createRelationshipTo( n04p1, DemoRelationshipTypes.KNOWS );
-				rn01n04.setProperty( "relationshipName", "node01-p1->node04-p1" );
-				rn01n04.setProperty( "relationshipDistance", 10 );
 				
 				startingElements.add(new LongElementId(n01p1.getId()));
 			}
@@ -182,58 +185,63 @@ public class MasuriaDemoDriver {
 				n02p2.setProperty( "nodeName", "node02-p02" );
 				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n02p2, graphDb), pm02.getDescriptor());
 				
-				n03p2 = graphDb.createNode();
-				n03p2.setProperty( "nodeName", "node03-p02" );
-				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n03p2, graphDb), pm02.getDescriptor());
-
-				n04p2 = graphDb.createNode();
-				n04p2.setProperty( "nodeName", "node04-p02" );
-				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n04p2, graphDb), pm02.getDescriptor());
-
-				n05p2 = graphDb.createNode();
-				n05p2.setProperty( "nodeName", "node05-p02" );
-				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n05p2, graphDb), pm02.getDescriptor());
+//				n03p2 = graphDb.createNode();
+//				n03p2.setProperty( "nodeName", "node03-p02" );
+//				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n03p2, graphDb), pm02.getDescriptor());
+//
+//				n04p2 = graphDb.createNode();
+//				n04p2.setProperty( "nodeName", "node04-p02" );
+//				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n04p2, graphDb), pm02.getDescriptor());
+//
+//				n05p2 = graphDb.createNode();
+//				n05p2.setProperty( "nodeName", "node05-p02" );
+//				((LocalMasterPartitioner)cPartitioner).addMaping(new Neo4JElement(n05p2, graphDb), pm02.getDescriptor());
 
 				
 				rn01p2n02p2 = n01p2.createRelationshipTo( n02p2, DemoRelationshipTypes.KNOWS );
 				rn01p2n02p2.setProperty( "relationshipName", "node01-p2->node02-p2" );
 				rn01p2n02p2.setProperty( "relationshipDistance", 2 );
-				rn02p2n03p2 = n02p2.createRelationshipTo( n03p2, DemoRelationshipTypes.KNOWS );
-				rn02p2n03p2.setProperty( "relationshipName", "node02-p2->node03-p2" );
-				rn02p2n03p2.setProperty( "relationshipDistance", 2 );
-				rn03p2n04p2 = n03p2.createRelationshipTo( n04p2, DemoRelationshipTypes.KNOWS );
-				rn03p2n04p2.setProperty( "relationshipName", "node03-p2->node04-p2" );
-				rn03p2n04p2.setProperty( "relationshipDistance", 2 );
-				rn04p2n05p2 = n04p2.createRelationshipTo( n05p2, DemoRelationshipTypes.KNOWS );
-				rn04p2n05p2.setProperty( "relationshipName", "node04-p2->node05-p2" );
-				rn04p2n05p2.setProperty( "relationshipDistance", 2 );
-				
+//				rn02p2n03p2 = n02p2.createRelationshipTo( n03p2, DemoRelationshipTypes.KNOWS );
+//				rn02p2n03p2.setProperty( "relationshipName", "node02-p2->node03-p2" );
+//				rn02p2n03p2.setProperty( "relationshipDistance", 2 );
+//				rn03p2n04p2 = n03p2.createRelationshipTo( n04p2, DemoRelationshipTypes.KNOWS );
+//				rn03p2n04p2.setProperty( "relationshipName", "node03-p2->node04-p2" );
+//				rn03p2n04p2.setProperty( "relationshipDistance", 2 );
+//				rn04p2n05p2 = n04p2.createRelationshipTo( n05p2, DemoRelationshipTypes.KNOWS );
+//				rn04p2n05p2.setProperty( "relationshipName", "node04-p2->node05-p2" );
+//				rn04p2n05p2.setProperty( "relationshipDistance", 2 );
+//				
 				//startingElements.add(new LongElementId(n01p2.getId()));
 			}
 
-			Relationship rn02p1n01p2, rn04p2n03p1, rn01p1n01p2, rn04p1n05p2, rn02p2n04p1;
+			Relationship rn01p1n01p2, rn02p1n01p2, rn04p2n03p1, rn04p1n05p2, rn02p2n04p1;
+			
 			//inter-partition relations
 			{
-				rn02p1n01p2 = n02p1.createRelationshipTo( n01p2, DemoRelationshipTypes.KNOWS );
-				rn02p1n01p2.setProperty( "relationshipName", "node02-p1->node01-p2" );
-				rn02p1n01p2.setProperty( "relationshipDistance", 3 );
-				
-				rn04p2n03p1 = n04p2.createRelationshipTo( n03p1, DemoRelationshipTypes.KNOWS );
-				rn04p2n03p1.setProperty( "relationshipName", "node04-p2->node03-p1" );
-				rn04p2n03p1.setProperty( "relationshipDistance", 3 );
-
 				rn01p1n01p2 = n01p1.createRelationshipTo( n01p2, DemoRelationshipTypes.KNOWS );
 				rn01p1n01p2.setProperty( "relationshipName", "node01-p1->node01-p2" );
 				rn01p1n01p2.setProperty( "relationshipDistance", 1 );
 
-				rn04p1n05p2 = n04p1.createRelationshipTo( n05p2, DemoRelationshipTypes.KNOWS );
-				rn04p1n05p2.setProperty( "relationshipName", "node04-p1->node05-p2" );
-				rn04p1n05p2.setProperty( "relationshipDistance", 10 );
-
-				rn02p2n04p1 = n02p2.createRelationshipTo( n04p1, DemoRelationshipTypes.KNOWS );
-				rn02p2n04p1.setProperty( "relationshipName", "node02-p2->node04-p1" );
-				rn02p2n04p1.setProperty( "relationshipDistance", 2 );
+				rn02p1n01p2 = n02p1.createRelationshipTo( n01p2, DemoRelationshipTypes.KNOWS );
+				rn02p1n01p2.setProperty( "relationshipName", "node02-p1->node01-p2" );
+				rn02p1n01p2.setProperty( "relationshipDistance", 3 );
 				
+//				rn04p2n03p1 = n04p2.createRelationshipTo( n03p1, DemoRelationshipTypes.KNOWS );
+//				rn04p2n03p1.setProperty( "relationshipName", "node04-p2->node03-p1" );
+//				rn04p2n03p1.setProperty( "relationshipDistance", 3 );
+//
+//				rn01p1n01p2 = n01p1.createRelationshipTo( n01p2, DemoRelationshipTypes.KNOWS );
+//				rn01p1n01p2.setProperty( "relationshipName", "node01-p1->node01-p2" );
+//				rn01p1n01p2.setProperty( "relationshipDistance", 1 );
+//
+//				rn04p1n05p2 = n04p1.createRelationshipTo( n05p2, DemoRelationshipTypes.KNOWS );
+//				rn04p1n05p2.setProperty( "relationshipName", "node04-p1->node05-p2" );
+//				rn04p1n05p2.setProperty( "relationshipDistance", 10 );
+//
+//				rn02p2n04p1 = n02p2.createRelationshipTo( n04p1, DemoRelationshipTypes.KNOWS );
+//				rn02p2n04p1.setProperty( "relationshipName", "node02-p2->node04-p1" );
+//				rn02p2n04p1.setProperty( "relationshipDistance", 2 );
+//				
 			}
 
 			
