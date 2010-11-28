@@ -38,9 +38,10 @@
     
     <dependency>
       <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-kernel</artifactId>
-      <scope>provided</scope>
+      <artifactId>neo4j</artifactId>
+      <type>pom</type>
     </dependency>
+
 
     <!-- testing -->
 

@@ -32,7 +32,7 @@ public class LocalPeerExecutor extends PeerLevelComponentBase<IMasterExecutor>
 	
 	private IProgram program;
 
-	private volatile long localIteration=0;
+	private long localIteration=0;
 	
 
 	public LocalPeerExecutor() {

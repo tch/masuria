@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <key id="nodeName" for="node" attr.name="nodeName" attr.type="string"></key>
+  <key id="relationshipDistance" for="edge" attr.name="relationshipDistance"
+    attr.type="int"></key>
+  <key id="relationshipName" for="edge" attr.name="relationshipName"
+    attr.type="string"></key>
+  <graph id="G" edgedefault="directed">
+    <node id="0">
+      <data key="nodeName">node01-p01</data>
+    </node>
+    <node id="6">
+      <data key="nodeName">node02-p01</data>
+    </node>
+    <node id="7">
+      <data key="nodeName">node03-p01</data>
+    </node>
+    <node id="8">
+      <data key="nodeName">node01-p02</data>
+    </node>
+    <node id="9">
+      <data key="nodeName">node02-p02</data>
+    </node>
+    <edge id="6" source="0" target="6" label="KNOWS">
+      <data key="relationshipDistance">1</data>
+      <data key="relationshipName">node01-p1-&gt;node02-p1</data>
+    </edge>
+    <edge id="7" source="0" target="7" label="KNOWS">
+      <data key="relationshipDistance">10</data>
+      <data key="relationshipName">node01-p1-&gt;node03-p1</data>
+    </edge>
+    <edge id="10" source="0" target="8" label="KNOWS">
+      <data key="relationshipDistance">1</data>
+      <data key="relationshipName">node01-p1-&gt;node01-p2</data>
+    </edge>
+    <edge id="8" source="6" target="7" label="KNOWS">
+      <data key="relationshipDistance">1</data>
+      <data key="relationshipName">node02-p1-&gt;node03-p1</data>
+    </edge>
+    <edge id="11" source="6" target="8" label="KNOWS">
+      <data key="relationshipDistance">3</data>
+      <data key="relationshipName">node02-p1-&gt;node01-p2</data>
+    </edge>
+    <edge id="9" source="8" target="9" label="KNOWS">
+      <data key="relationshipDistance">2</data>
+      <data key="relationshipName">node01-p2-&gt;node02-p2</data>
+    </edge>
+  </graph>
+</graphml>

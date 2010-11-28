@@ -36,8 +36,10 @@
 
     <dependency>
       <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-kernel</artifactId>
+      <artifactId>neo4j</artifactId>
+      <type>pom</type>
     </dependency>
+
 
     <dependency>
       <groupId>com.google.guava</groupId>

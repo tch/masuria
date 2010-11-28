@@ -42,9 +42,11 @@
   <dependencies>
   
 <!-- TODO;tch: to be removed eventually, IVertex is leaking -->
-    <dependency> 
-	    <groupId>org.neo4j</groupId>
-	    <artifactId>neo4j-kernel</artifactId>
+    <dependency>
+      <groupId>org.neo4j</groupId>
+      <artifactId>neo4j</artifactId>
+      <type>pom</type>
+      <scope>provided</scope>
     </dependency>
       
     <dependency>

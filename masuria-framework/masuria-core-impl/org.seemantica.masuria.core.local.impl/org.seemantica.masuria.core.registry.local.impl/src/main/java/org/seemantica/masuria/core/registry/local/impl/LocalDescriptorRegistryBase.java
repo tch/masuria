@@ -18,11 +18,15 @@ public class LocalDescriptorRegistryBase<E extends IDescribable> implements IDes
 
 	private Map<IDescriptor, E> elements;
 	private Map<IDescriptor, Integer> sequences;
+	private Map<Integer, IDescriptor> descriptors;
 
 	
 	public LocalDescriptorRegistryBase()  {
+
 		elements = new HashMap<IDescriptor, E>();
 		sequences = new HashMap<IDescriptor, Integer>();
+		
+		descriptors = new HashMap<Integer,IDescriptor>();
 	}
 	
 	
@@ -32,6 +36,7 @@ public class LocalDescriptorRegistryBase<E extends IDescribable> implements IDes
 		IDescriptor descriptor = createDescriptor(element);
 		elements.put(descriptor, element);
 		sequences.put(descriptor, sequences.size());
+		descriptors.put(descriptors.size(), descriptor);
 		
 		element.setDescriptor(descriptor);
 
@@ -40,6 +45,7 @@ public class LocalDescriptorRegistryBase<E extends IDescribable> implements IDes
 	
 	@Override
 	public E getElement(final IDescriptor descriptor) {
+
 		return elements.get(descriptor);
 	}
 
@@ -58,19 +64,28 @@ public class LocalDescriptorRegistryBase<E extends IDescribable> implements IDes
 
 
 	@Override
-	public int getElementSequenceNumber(IDescriptor descriptor) {
+	public int getDescriptorSequenceNumber(final IDescriptor descriptor) {
 
 		return sequences.get(descriptor);
 	}
 
+	@Override
+	public IDescriptor getDescriptorFromSequenceNumber(int seq) {
+
+		return descriptors.get(seq);
+	}
+	
+	
 
 	//OSGI routines
     protected void activate(ComponentContext context) {
+
         logger.debug("LocalDescriptorRegistry component activated");
         //throw new RuntimeException("Runtime Exception");
     }
     
     protected void deactivate(ComponentContext context) {
+
         logger.debug("LocalDescriptorRegistry component deactivated");
     }
 	

@@ -14,6 +14,7 @@ import org.seemantica.masuria.core.database.IMasterDatabase;
 import org.seemantica.masuria.core.database.MasterDatabaseBase;
 import org.seemantica.masuria.core.datamodel.IElementId;
 import org.seemantica.masuria.core.datamodel.neo4j.impl.Neo4JElement;
+import org.seemantica.masuria.core.partitioner.IMasterPartitioner;
 import org.seemantica.masuria.core.registry.IDescriptor;
 
 
@@ -35,7 +36,16 @@ public class LocalNeo4JMasterDatabase extends MasterDatabaseBase<Neo4JElement> i
 	@Override
 	public long getNumberOfElements(IDescriptor descriptor) {
 		
-		return countIterable( clusterManager.getPartitioner().getElementIds(descriptor) );
+		long nOfElements=0;
+		IMasterPartitioner mp = clusterManager.getPartitioner();
+		
+		for(Neo4JElement el : getElements())
+		{
+			if( mp.isOnPeerPartition(el.getId(), descriptor) )
+					++nOfElements;
+		}
+		
+		return nOfElements;
 	}
 	
 	

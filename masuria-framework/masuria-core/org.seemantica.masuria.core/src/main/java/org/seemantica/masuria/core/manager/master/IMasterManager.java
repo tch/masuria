@@ -8,6 +8,7 @@ import org.seemantica.masuria.core.datamodel.IElementId;
 import org.seemantica.masuria.core.executor.IMasterExecutor;
 import org.seemantica.masuria.core.manager.peer.IPeerManager;
 import org.seemantica.masuria.core.partitioner.IMasterPartitioner;
+import org.seemantica.masuria.core.partitioner.IPartitioner;
 import org.seemantica.masuria.core.program.IMessage;
 import org.seemantica.masuria.core.program.IProgram;
 import org.seemantica.masuria.core.registry.IDescriptor;
@@ -31,6 +32,9 @@ public interface IMasterManager extends IMachineManager {
 	
 	void associatePeerRegistry(IDescriptorRegistry<IPeerManager> peerRegistry);
 	
+	IDescriptorRegistry<IPeerManager> getPeerRegistry();
+	
+	
 	void addPeer(final IDescriptor nodeId);
 	
 	//TODO;tch: consider returning IDescriptors to dynamically resolve active nodes
@@ -43,12 +47,13 @@ public interface IMasterManager extends IMachineManager {
 	
 	void associateProgramExecutor(IMasterExecutor executor);
 	
-	
+
 	//data partitioning routines section
 	
 	IMasterPartitioner getPartitioner();
 	
 	void associatePartitioner(IMasterPartitioner partitioner);
+
 
 	/** 
 	 * 
@@ -78,5 +83,6 @@ public interface IMasterManager extends IMachineManager {
 	IMasterDatabase<? extends IElement> getDatabase();
 	
 	void associateDatabase(IMasterDatabase<? extends IElement> database);
+
 		
 }

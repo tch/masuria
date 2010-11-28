@@ -8,7 +8,7 @@ import org.seemantica.masuria.core.registry.IDescriptor;
 public interface IMasterPartitioner extends IPartitioner, IMasterLevelComponent {
 
 
-	Iterable<IElementId> getElementIds(IDescriptor partition);
+	//Iterable<IElementId> getElementIds(IDescriptor partition);
 	
 	boolean isOnPeerPartition(IElementId id, IDescriptor partition);
 

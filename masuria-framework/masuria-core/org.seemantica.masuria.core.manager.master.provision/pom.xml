@@ -114,9 +114,10 @@
       <artifactId>com.springsource.javax.transaction</artifactId>
     </dependency>
 
-    <dependency> 
+    <dependency>
       <groupId>org.neo4j</groupId>
-      <artifactId>neo4j-kernel</artifactId>
+      <artifactId>neo4j</artifactId>
+      <type>pom</type>
     </dependency>
     
     

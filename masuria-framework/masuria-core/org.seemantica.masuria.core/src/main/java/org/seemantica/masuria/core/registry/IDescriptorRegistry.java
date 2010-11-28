@@ -8,5 +8,8 @@ public interface IDescriptorRegistry<E> {
 
 	int getTotalNumberOfElements();
 	
-	int getElementSequenceNumber( final IDescriptor descriptor );
+	int getDescriptorSequenceNumber( final IDescriptor descriptor );
+	
+	IDescriptor getDescriptorFromSequenceNumber(int seq);
 }
+

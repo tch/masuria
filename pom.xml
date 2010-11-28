@@ -22,7 +22,8 @@
     <org.slf4j.version>1.6.1</org.slf4j.version>
     <ch.qos.logback.version>0.9.24</ch.qos.logback.version>
     <javax.transaction.version>1.1.0</javax.transaction.version>
-    <org.neo4j.version>1.1.1</org.neo4j.version>
+    <org.neo4j.version>1.2.M04</org.neo4j.version>
+    <com.tinkerpop.blueprints.version>0.2.1-SNAPSHOT</com.tinkerpop.blueprints.version>
     
     <org.osgi.core.version>4.2.0</org.osgi.core.version>
     <org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
@@ -201,7 +202,7 @@
                 <include>**/test/**</include>
             </includes>
             <excludes>
-                <exclude>RUNNER/**</exclude>
+                <exclude>runner/**</exclude>
                 <exclude>.clover/**</exclude>
                 <exclude>**/*.properties</exclude>
             </excludes>
@@ -243,13 +244,15 @@
   </build>
 	
   <dependencies>
-
-    <dependency> <!--NOTE;tch: added explicitly as maven resolves it to version 0.9.17 -->
+  
+    <!--NOTE;tch: added explicitly as maven resolves it to version 0.9.17 -->
+<!-- 
+    <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
         <version>${ch.qos.logback.version}</version>
     </dependency>
-
+-->
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
@@ -261,6 +264,14 @@
         <artifactId>slf4j-api</artifactId>
         <version>${org.slf4j.version}</version>
     </dependency>
+
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>log4j-over-slf4j</artifactId>
+        <version>${org.slf4j.version}</version>
+        <scope>runtime</scope>
+    </dependency>
+
 <!--     
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -330,10 +341,29 @@
       </dependency>
     
       <dependency>
-        <groupId>org.neo4j</groupId>
-        <artifactId>neo4j-kernel</artifactId>
+         <groupId>org.neo4j</groupId>
+         <artifactId>neo4j</artifactId>
+         <type>pom</type>
         <version>${org.neo4j.version}</version>
       </dependency>
+      
+
+      <dependency>
+        <groupId>com.tinkerpop</groupId>
+        <artifactId>blueprints</artifactId>
+        <version>${com.tinkerpop.blueprints.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
 
       <dependency>
         <groupId>commons-httpclient</groupId>
@@ -415,10 +445,11 @@
     <repositories>
       <repository>
         <id>neo4j-public-repository</id>
-        <name>Publically available Maven 2 repository for Neo4j</name>
+        <name>Publicly available Maven 2 repository for Neo4j</name>
         <url>http://m2.neo4j.org</url>
         <snapshots>
           <enabled>true</enabled>
+          <updatePolicy>always</updatePolicy>
         </snapshots>
       </repository>
 <!--      
@@ -451,7 +482,13 @@
         <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
         <url>http://repository.springsource.com/maven/bundles/external</url>
       </repository> 
-      
+
+      <repository>
+        <id>tinkerpop-repository</id>
+        <name>TinkerPop Maven2 Repository</name>
+        <url>http://tinkerpop.com/maven2</url>
+      </repository> 
+
     </repositories>
 
 </project>

@@ -1,6 +1,5 @@
 package org.seemantica.masuria.core.database.peer.neo4j.impl;
 
-
 import org.seemantica.masuria.core.PeerLevelComponentBase;
 import org.seemantica.masuria.core.database.IMasterDatabase;
 import org.seemantica.masuria.core.database.IPeerDatabase;

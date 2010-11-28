@@ -123,7 +123,13 @@ public class MasterManager implements IMasterManager {
 		
 		logger.debug("PeerRegistry component bound");
 	}
-	
+
+	@Override
+	public IDescriptorRegistry<IPeerManager> getPeerRegistry( ) {
+		
+		return this.peerRegistry;
+	}
+
 	
 	@Override
 	public void addPeer(final IDescriptor descriptor) {

@@ -124,6 +124,12 @@
     </dependency>
 
 
+    <dependency>
+      <groupId>com.tinkerpop</groupId>
+      <artifactId>blueprints</artifactId>
+    </dependency>
+
+
     <!-- testing -->
 
     <dependency>
