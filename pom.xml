@@ -37,9 +37,9 @@
     <project.provision.osgi.profiles>log</project.provision.osgi.profiles>
     
     <!-- plugins versions -->
-    <plugin.bundle.version>2.1.0</plugin.bundle.version>
+    <plugin.bundle.version>2.2.0</plugin.bundle.version>
     <plugin.pax.version>1.4</plugin.pax.version>
-    
+    <plugin.license.version>1.9.0</plugin.license.version>
   </properties>
 
 
@@ -68,12 +68,12 @@
 	        <version>${plugin.pax.version}</version>
 	      </plugin>
 
-				<plugin>
-				  <groupId>org.apache.felix</groupId>
-				  <artifactId>maven-bundle-plugin</artifactId>
-				  <version>${plugin.bundle.version}</version>
-				  <extensions>true</extensions>
-				</plugin>
+		<plugin>
+		  <groupId>org.apache.felix</groupId>
+		  <artifactId>maven-bundle-plugin</artifactId>
+		  <version>${plugin.bundle.version}</version>
+		  <extensions>true</extensions>
+		</plugin>
 
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -185,6 +185,7 @@
         <plugin>
           <groupId>com.mycila.maven-license-plugin</groupId>
           <artifactId>maven-license-plugin</artifactId>
+          <version>${plugin.license.version}</version>
           <configuration>
             <basedir>${basedir}</basedir>
             <header>./src/license/license_header.txt</header>
@@ -219,7 +220,7 @@
                 <name>${project.name}</name>
                 <year>${project.inceptionYear}</year>
                 <holder>Tomasz Chodakowski</holder>
-                <email>tch@wp.eu</email>
+                <email>--tch(at)wp.eu--</email>
             </properties>
             <encoding>UTF-8</encoding>
              <!--
