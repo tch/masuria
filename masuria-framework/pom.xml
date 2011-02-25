@@ -6,7 +6,7 @@
   <name>masuria-framework module</name>
   <packaging>pom</packaging>
   <version>0.0.1.M1-SNAPSHOT</version>
- 
+
   <parent>
     <groupId>org.seemantica.masuria</groupId>
     <artifactId>masuria-project</artifactId>
@@ -17,4 +17,5 @@
     <module>masuria-core</module>
     <module>masuria-core-impl</module>
   </modules>
+
 </project>
