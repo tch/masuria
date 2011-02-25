@@ -6,13 +6,13 @@
   <name>masuria-demo module</name>
   <packaging>pom</packaging>
   <version>0.0.1.M1-SNAPSHOT</version>
- 
+
   <parent>
     <groupId>org.seemantica.masuria</groupId>
     <artifactId>masuria-project</artifactId>
     <version>0.0.1.M1-SNAPSHOT</version>
   </parent>
-  
+
   <modules>
     <module>org.seemantica.masuria.demo</module>
     <module>org.seemantica.masuria.demo.program.helloworld</module>
