@@ -13,8 +13,11 @@
     <module>masuria-sandbox</module>
   </modules>
 
+
   <properties>
-    
+
+    <license.project.name>Project Masuria</license.project.name>
+
     <!-- dependencies -->
     <org.restlet.version>2.0-M6</org.restlet.version>
     <org.openrdf.sesame.version>3.0.0-SNAPSHOT</org.openrdf.sesame.version>
@@ -43,11 +46,24 @@
   </properties>
 
 
+  <inceptionYear>2010</inceptionYear>
+
+  <licenses>
+    <license>
+        <name>Apache 2</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        <distribution>repo</distribution>
+        <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
+
   <scm>
     <connection>scm:git:git@github.com:tch/masuria.git</connection>
     <url>scm:git:git@github.com:tch/masuria.git</url>
     <developerConnection>scm:git:git@github.com:tch/masuria.git</developerConnection>  
   </scm>
+
 
   <build>
     <pluginManagement>
@@ -62,18 +78,18 @@
         </plugin>
       -->
 
-	      <plugin>
-	        <groupId>org.ops4j</groupId>
-	        <artifactId>maven-pax-plugin</artifactId>
-	        <version>${plugin.pax.version}</version>
-	      </plugin>
+        <plugin>
+          <groupId>org.ops4j</groupId>
+          <artifactId>maven-pax-plugin</artifactId>
+          <version>${plugin.pax.version}</version>
+        </plugin>
 
-		<plugin>
-		  <groupId>org.apache.felix</groupId>
-		  <artifactId>maven-bundle-plugin</artifactId>
-		  <version>${plugin.bundle.version}</version>
-		  <extensions>true</extensions>
-		</plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${plugin.bundle.version}</version>
+          <extensions>true</extensions>
+        </plugin>
 
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -85,7 +101,7 @@
             </configuration>
         </plugin>
 
-<!--      
+<!--
           <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>aspectj-maven-plugin</artifactId>
@@ -206,6 +222,7 @@
                 <exclude>runner/**</exclude>
                 <exclude>.clover/**</exclude>
                 <exclude>**/*.properties</exclude>
+                <exclude>src/license/**</exclude>
             </excludes>
             <useDefaultExcludes>true</useDefaultExcludes>
             <!-- 
@@ -217,10 +234,10 @@
              -->
             <useDefaultMapping>true</useDefaultMapping>
             <properties>
-                <name>${project.name}</name>
-                <year>${project.inceptionYear}</year>
+                <projectName>${license.project.name}</projectName>
+                <inceptionYear>${project.inceptionYear}</inceptionYear>
                 <holder>Tomasz Chodakowski</holder>
-                <email>--tch(at)wp.eu--</email>
+                <email>*tch (at) wp.eu*</email>
             </properties>
             <encoding>UTF-8</encoding>
              <!--
@@ -233,7 +250,7 @@
           <executions>
             <execution>
                 <goals>
-                    <goal>check</goal>
+                  <goal>check</goal><!--TODO;tch:does not call the plugin during verify phase-->
                 </goals>
             </execution>
           </executions>

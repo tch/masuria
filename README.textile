@@ -84,8 +84,10 @@ h3. Related Work
 * Google Pregel[3]
  
 * CMU GraphLab[4]
+
+* Zurich University Signal/Collect
  
- and number of other research projects.
+ ...and number of other projects.
 
 
 
