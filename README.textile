@@ -8,7 +8,7 @@ Masuria is a system for distributed processing of relational data, ie. data natu
  * extensible APIs, modular and pluggable implementation based on OSGi technology;
  * suitable for adaptation to a number of existing or future storage technologies.
 
-
+For introduction to the computational paradigm upon which the framework is based (bulk synchronous parallel) see "this presentation":http://www.slideshare.net/chodakowski/processing-graphrelational-data-with-mapreduce-and-bulk-synchronous-parallel .
 
 h3. Sample Code
 
@@ -63,7 +63,7 @@ h3. Getting Started
 
 h3. Development status
 
- This is a prototype created mainly to identify main components and develop adequate intuitions. The software is quickly evolving into first milestone that could be run in a distributed environment.
+ This is a prototype created mainly to identify main components and develop adequate intuitions around distributed OSGi development. The system can be run in a single-machine, single threaded mode.
 
 h4. TODO
   
@@ -85,9 +85,10 @@ h3. Related Work
  
 * CMU GraphLab[4]
 
-* Zurich University Signal/Collect
+* Zurich University Signal/Collect[6]
  
- ...and number of other projects.
+* Microsoft Research Trinity[7]
+ ...and a number of other projects.
 
 
 
@@ -103,3 +104,7 @@ fn3. "Google Pregel":http://portal.acm.org/citation.cfm?id=1807167.1807184
 fn4. "GraphLab":http://www.graphlab.ml.cmu.du/
 
 fn5. "MasuriaDemoDriver.java":http://github.com/tch/masuria/blob/public/masuria-demo/org.seemantica.masuria.demo/src/main/java/org/seemantica/masuria/demo/MasuriaDemoDriver.java
+
+fn6. "Signal/collect":http://www.ifi.uzh.ch/ddis/research/sc/
+
+fn7. "Microsoft Research Trinity":http://research.microsoft.com/en-us/projects/trinity/
